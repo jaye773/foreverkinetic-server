@@ -1,1 +1,8 @@
 language: clojure
+deploy:
+  provider: heroku
+  api_key:
+    secure: hVK3d1LDTQo/8N08k6XTQ2APsK/3qJNBdqrs6B0LZ5JrOwq3nvcHWoRm3uV7K1aWMJyAjYgIVemIFgP/OPF5EIEAZ/dnQifd8lRrJTsAUBLs/64pt7Y+zupH5hcBpujlIBLgAizwGZpGlTC7FcgLW8n9X1K2jA9sQGeFg7n3s3E=
+  app: afternoon-harbor-5993
+  on:
+    repo: jaye773/foreverkinetic-server
