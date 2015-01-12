@@ -6,6 +6,7 @@
                  [hiccup "1.0.5"]
                  [ring-server "0.3.1"]]
   :plugins [[lein-ring "0.8.12"]]
+  :min-lein-version "2.5.1"
   :ring {:handler foreverkinetic-server.handler/app
          :init foreverkinetic-server.handler/init
          :destroy foreverkinetic-server.handler/destroy}
