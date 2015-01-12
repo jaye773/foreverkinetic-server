@@ -1,1 +1,1 @@
-web: java $JVM_OPTS -jar target/foreverkinetic-server-0.1.0-SNAPSHOT-standalone.jar
+web: lein with-profile production trampoline ring server
