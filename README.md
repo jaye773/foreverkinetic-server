@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jaye773/foreverkinetic-server.svg?branch=master)](https://travis-ci.org/jaye773/foreverkinetic-server)
+
 # foreverkinetic-server
 
 ## Prerequisites
