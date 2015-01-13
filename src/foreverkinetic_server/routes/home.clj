@@ -3,7 +3,7 @@
             [foreverkinetic-server.views.layout :as layout]))
 
 (defn home []
-	"Hello World!")
+	"Foreverkinetic is under construction!")
 
 (defroutes home-routes
   (GET "/" [] (home)))
