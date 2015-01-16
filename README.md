@@ -1,19 +1,33 @@
 [![Build Status](https://travis-ci.org/jaye773/foreverkinetic-server.svg?branch=master)](https://travis-ci.org/jaye773/foreverkinetic-server)
 
-# foreverkinetic-server
+Foreverkinetic-Server
+==================
 
-## Prerequisites
+Simple server to return exercise information.
 
-You will need [Leiningen][1] 1.7.0 or above installed.
+Use Cases
+===========
+Show Exercise
+Show all exercises with infinite scrolling
+Filter exercise list
+Search for exercise
+Positive exercise vote
+Share exercise on social media(facebook, twitter, others)
 
-[1]: https://github.com/technomancy/leiningen
 
-## Running
+Server API
+===========
 
-To start a web server for the application, run:
+/exercise/:id
 
-    lein ring server
+/exercise_list?limit=3&offest=0&type=”barbell”search_key=”push playground”
 
-## License
+/exercise/:id/votes
 
-Copyright © 2015 FIXME
+
+Misc
+===========
+We would like the database layer to allow interchangeable database technology. Some how use interface/protocols.
+
+Would like a caching layer. This allows to speedy server responses.
+
