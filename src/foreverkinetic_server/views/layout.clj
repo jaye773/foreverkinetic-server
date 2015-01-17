@@ -4,6 +4,6 @@
 (defn common [& body]
   (html5
     [:head
-     [:title "Welcome to foreverkinetic-server"]
+     [:title "Welcome to foreverkinetic-server yay"]
      (include-css "/css/screen.css")]
     [:body body]))
