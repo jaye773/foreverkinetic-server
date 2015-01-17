@@ -1,4 +1,6 @@
 language: clojure
+notifications:
+      slack: u1stgames:gXSvK6uCZxJcjEtgRj7eFDty
 deploy:
   provider: heroku
   api_key:
