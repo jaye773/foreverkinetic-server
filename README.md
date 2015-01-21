@@ -1,7 +1,14 @@
 [![Build Status](https://travis-ci.org/jaye773/foreverkinetic-server.svg?branch=master)](https://travis-ci.org/jaye773/foreverkinetic-server)
 
+**Note**
+On a fresh pull link app to heroku: git remote add heroku git@heroku.com:afternoon-harbor-5993.git
+
 Foreverkinetic-Server
 ==================
+
+Db Setup
+========
+Setup your local database with the details as specified in model/model.clj
 
 Simple server to return exercise information.
 
