@@ -3,8 +3,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -22,10 +23,10 @@ public class Library {
                 .get();
         Exercise exercise = createExercise(doc);
         exercise.print();
-        //exercises.add(exercise);
+        exercises.add(exercise);
     }
 
-    public static Exercise createExercise(Document doc) {
+    public static Exercise createExercise(Document doc) throws IOException {
         Exercise exercise = new Exercise();
         exercise.setTitle(doc.select(".entry-title a").first().text());
         exercise.setDescription(doc.select(".exercise-entry-content p").first().text());
@@ -59,7 +60,44 @@ public class Library {
                 }
             }
         }
+
+        Elements images = doc
+                .select("ul.download-exercise-images li")
+                .get(1)
+                .select("a");
+        for (Element image : images) {
+            exercise.addImage(downloadImage(image.attr("href")));
+        }
         return exercise;
+    }
+
+    public static String downloadImage(String imageLink) throws IOException {
+        URL url = new URL(imageLink);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
+        conn.setAllowUserInteraction(false);
+        conn.setDoInput(true);
+        conn.setDoOutput(true);
+        conn.connect();
+
+        String raw = conn.getHeaderField("Content-Disposition");
+        String filename  = null;
+        if(raw != null && raw.indexOf("=") != -1) {
+            filename = raw.split("=")[1];
+        } else {
+            filename = java.util.UUID.randomUUID().toString();
+        }
+
+        InputStream in = new BufferedInputStream(conn.getInputStream());
+        OutputStream out = new BufferedOutputStream(new FileOutputStream("images/" + filename));
+
+        for ( int i; (i = in.read()) != -1; ) {
+            out.write(i);
+        }
+        in.close();
+        out.close();
+
+        return filename;
     }
 
     public static void main(String[] args) throws IOException {

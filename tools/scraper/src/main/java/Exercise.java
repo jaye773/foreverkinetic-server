@@ -8,6 +8,7 @@ public class Exercise {
     public ArrayList<String> primaryMusclGroup;
     public ArrayList<String> secondaryMuscleGroup;
     public ArrayList<String> equipment;
+    public ArrayList<String> images;
 
     public Exercise() {
         types = new ArrayList<>();
@@ -15,6 +16,7 @@ public class Exercise {
         primaryMusclGroup = new ArrayList<>();
         secondaryMuscleGroup = new ArrayList<>();
         equipment = new ArrayList<>();
+        images = new ArrayList<>();
     }
 
     public void setTitle(String _title) {
@@ -45,6 +47,10 @@ public class Exercise {
         secondaryMuscleGroup.add(muscleGroup);
     }
 
+    public void addImage(String imageName) {
+        images.add(imageName);
+    }
+
     public void print() {
         System.out.println("Title: " + title);
         System.out.println("Description: " + description);
@@ -53,6 +59,7 @@ public class Exercise {
         System.out.println("Secondary Muscle Group: " + secondaryMuscleGroup );
         System.out.println("Type: " + types);
         System.out.println("Equipment: " + equipment);
+        System.out.println("Images: " + images);
         System.out.println();
     }
 }
