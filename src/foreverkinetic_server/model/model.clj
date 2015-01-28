@@ -10,19 +10,24 @@
      :subname (env :database-url "//localhost/forever_kinetic")
      :user (env :db-user "forever")
      :password (env :db-password "andeverandever")}))
-(defdb korma-db db)
-
-(sql/query db ["SELECT * FROM exercises WHERE exercise_id = ?" "11"])
+#_(defdb korma-db db)
+(defentity exercises)
 
 (defmulti get-exercise class)
 
 (defmethod get-exercise java.lang.Long [input]
-  (exec-raw ["SELECT * FROM exercises WHERE exercise_id = ?" [input]] :results))
+  (select exercises
+          (fields :title :description :positive_votes)
+          (where {:exercise_id input})))
 
 (defmethod get-exercise java.lang.String [input]
-  (exec-raw ["SELECT * FROM exercises WHERE title = ?" [input]] :results))
+  (select exercises
+          (fields :exercise_id :description :positive_votes)
+          (where {:title input})))
 
-(defn get-exercise-list [limit offset]
-  (exec-raw ["SELECT * FROM exercises LIMIT ? OFFSET ?" [limit offset]] :results))
-
+(defn get-exercise-list [limit-in offset-in]
+  (select exercises
+          (fields :exercise_id :description :positive_votes :title)
+          (limit limit-in)
+          (offset offset-in)))
 
