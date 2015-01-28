@@ -4,11 +4,15 @@
              [korma.core :refer :all]
              [clojure.java.jdbc :as sql]))
 
-(def db (mysql {
-         :db (env :db "forever_kinetic")
-         :user (env :db-user "forever")
-         :password (env :db-password "andeverandever")}))
+(def db
+  (mysql
+    {:subprotocol "mysql"
+     :subname (env :database-url "//localhost/forever_kinetic")
+     :user (env :db-user "forever")
+     :password (env :db-password "andeverandever")}))
 (defdb korma-db db)
+
+(sql/query db ["SELECT * FROM exercises WHERE exercise_id = ?" "11"])
 
 (defmulti get-exercise class)
 
