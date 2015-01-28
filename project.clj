@@ -5,8 +5,11 @@
                  [compojure "1.1.6"]
                  [hiccup "1.0.5"]
                  [korma "0.3.0"]
+                 [environ "1.0.0"]
                  [org.clojure/java.jdbc "0.3.6"]
                  [mysql/mysql-connector-java "5.1.25"]
+                 [liberator "0.12.2"]
+                 [cheshire "5.4.0"]
                  [ring-server "0.3.1"]]
   :plugins [[lein-ring "0.8.12"]]
   :min-lein-version "2.5.0"
