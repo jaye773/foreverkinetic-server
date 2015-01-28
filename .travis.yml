@@ -8,3 +8,7 @@ deploy:
   app: afternoon-harbor-5993
   on:
     repo: jaye773/foreverkinetic-server
+env: DB_USER=b5d09a12fab274
+env: DB_PASSWORD=14a77fe6
+env: DATABASE_URL=us-cdbr-iron-east-01.cleardb.net
+

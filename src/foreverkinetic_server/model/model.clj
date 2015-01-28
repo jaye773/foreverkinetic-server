@@ -6,8 +6,8 @@
 
 (def db (mysql {
          :db (env :db "forever_kinetic")
-         :user (env :db-user "root")
-         :password (env :db-password "1fishy4ME!")}))
+         :user (env :db-user "forever")
+         :password (env :db-password "andeverandever")}))
 (defdb korma-db db)
 
 (defmulti get-exercise class)
