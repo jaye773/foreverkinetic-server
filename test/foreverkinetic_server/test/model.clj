@@ -5,9 +5,17 @@
 
 (deftest get-exercise-test
   (testing "Testing multimethod"
-    (is (= (class 1) (get-exercise 1)))
-    (is (= (class "string") (get-exercise "string")))
-    (is (= (class {:key "val"}) (get-exercise {:key "val"})))
-    )
-  )
+    (let [queryResult (first (get-exercise 11))]
+      (is (and
+            (= java.lang.Integer (class (queryResult :positive_votes)))
+            (= java.math.BigInteger (class (queryResult :exercise_id)))
+            (= (class "") (class (queryResult :description)))
+            (= (class "") (class (queryResult :title))))))
+
+    (let [queryResult (first (get-exercise "Supermans"))]
+      (is (and
+            (= java.lang.Integer (class (queryResult :positive_votes)))
+            (= java.math.BigInteger (class (queryResult :exercise_id)))
+            (= (class "") (class (queryResult :description)))
+            (= (class "") (class (queryResult :title))))))))
 
