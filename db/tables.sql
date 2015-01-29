@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS exercise_types (
 
 CREATE TABLE IF NOT EXISTS exercises (
 	exercise_id	SERIAL PRIMARY KEY,
-	title		VARCHAR(40) NOT NULL,
-	description VARCHAR(250),
+	title		VARCHAR(250) NOT NULL,
+	description TEXT,
 	positive_votes	INTEGER NOT NULL
 );
 
@@ -46,5 +46,5 @@ CREATE TABLE IF NOT EXISTS equipment_exercise (
 CREATE TABLE IF NOT EXISTS media (
 	media_id	SERIAL PRIMARY KEY,
 	exercise_id	INTEGER NOT NULL REFERENCES exercises ON DELETE RESTRICT,
-	media_path	VARCHAR(40) NOT NULL
+	media_path	VARCHAR(250) NOT NULL
 );
