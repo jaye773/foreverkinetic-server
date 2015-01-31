@@ -8,7 +8,6 @@ deploy:
   app: afternoon-harbor-5993
   on:
     repo: jaye773/foreverkinetic-server
-env: DB_USER=b5d09a12fab274,
-     DB_PASSWORD=14a77fe6,
-     DATABASE_URL=//us-cdbr-iron-east-01.cleardb.net/heroku_27ef48f084bd390
-
+env: DB_USER=travis, DB_PASSWORD=, DATABASE_URL=127.0.0.1/forever_kinetic
+before_script:
+- mysql -e 'source forever_kinetic.sql'
