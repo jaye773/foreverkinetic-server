@@ -8,6 +8,7 @@ deploy:
   app: afternoon-harbor-5993
   on:
     repo: jaye773/foreverkinetic-server
-env: DB_USER=root DB_PASSWORD= DATABASE_URL=//127.0.0.1/forever_kinetic
+env: DB_USER=root DB_PASSWORD=password DATABASE_URL=//127.0.0.1/forever_kinetic
 before_script:
+- echo "USE mysql;\nUPDATE user SET password=PASSWORD('password') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
 - mysql -e 'source forever_kinetic.sql;'
