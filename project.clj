@@ -1,6 +1,8 @@
 (defproject foreverkinetic-server "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
+  :repositories {"my.datomic.com" {:url "https://my.datomic.com/repo"
+                                   :creds :gpg}}
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [compojure "1.1.6"]
                  [hiccup "1.0.5"]
@@ -8,6 +10,7 @@
                  [environ "1.0.0"]
                  [org.clojure/java.jdbc "0.3.6"]
                  [mysql/mysql-connector-java "5.1.25"]
+                 [com.datomic/datomic-free "0.9.5153"]
                  [liberator "0.12.2"]
                  [cheshire "5.4.0"]
                  [ring-server "0.3.1"]]
